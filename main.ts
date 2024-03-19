@@ -7,7 +7,7 @@
 /**
  * TM1650 数字显示
  */
-//% weight=30 color=#64C800 icon="8" block="TM1650"
+//% weight=30 color=#64C800 icon="8" block="数码管"
 namespace TM1650 {
 
     let COMMAND_I2C_ADDRESS = 0x24
