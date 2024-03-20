@@ -38,7 +38,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_ON" block="开启显示"
     //% weight=50 blockGap=8
-    export function on() {
+    export function TM650_ON() {
         cmd(_intensity * 16 + 1)
     }
 
@@ -47,7 +47,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_OFF" block="关闭显示"
     //% weight=50 blockGap=8
-    export function off() {
+    export function TM650_OFF() {
         _intensity = 0
         cmd(0)
     }
@@ -57,7 +57,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_CLEAR" block="清空显示"
     //% weight=40 blockGap=8
-    export function clear() {
+    export function TM650_CLEAR() {
         dat(0, 0)
         dat(1, 0)
         dat(2, 0)
@@ -84,7 +84,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_SHOW_NUMBER" block="显示数字%num"
     //% weight=100 blockGap=8
-    export function showNumber(num: number) {
+    export function TM650_SHOW_NUMBER(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
             num = -num
@@ -102,7 +102,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_SHOW_HEX_NUMBER" block="显示16进制数字%num"
     //% weight=90 blockGap=8
-    export function showHex(num: number) {
+    export function TM650_SHOW_HEX_NUMBE(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
             num = -num
@@ -136,12 +136,12 @@ namespace TM1650 {
         if ((dat < 0) || (dat > 8))
             return;
         if (dat == 0)
-            off()
+            TM650_OFF()
         else {
             _intensity = dat
             cmd((dat << 4) | 0x01)
         }
     }
 
-    on();
+    TM650_ON();
 }
